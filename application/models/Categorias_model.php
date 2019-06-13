@@ -1,0 +1,53 @@
+<?php
+class Categorias_model extends CI_Model {
+
+    public function __construct()
+    {
+            $this->load->database();
+    }
+
+    public function get_categorias($id = FALSE)
+    {
+            if ($id === FALSE)
+            {
+                    $query = $this->db->get('categorias');
+                    return $query->result_array();
+            }
+
+            $query = $this->db->get_where('categorias', array('id' => $id));
+            return $query->row_array();
+    }
+
+    public function set_categorias()
+    {
+        $this->load->helper('url');
+
+        //$codigo = url_title($this->input->post('title'), 'dash', TRUE);
+
+        $data = array(
+            'codigo' => $this->input->post('codigo'),
+            'descripcion' => $this->input->post('descripcion')
+        );
+
+        return $this->db->insert('categorias', $data);
+    }
+
+    public function edit_categoria($id = FALSE)
+    {
+        $this->load->helper('url');
+
+        //$codigo = url_title($this->input->post('title'), 'dash', TRUE);
+        if ($id === FALSE)
+        {
+            return 0;
+        }
+
+        $data = array(
+            'codigo' => $this->input->post('codigo'),
+            'descripcion' => $this->input->post('descripcion')
+        );
+
+        $this->db->where('id', $id);
+        return $this->db->update('categorias', $data);
+    }
+}

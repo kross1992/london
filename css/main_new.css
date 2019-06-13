@@ -1,0 +1,355 @@
+/*   html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark  html5doctor.com/html-5-reset-stylesheet/*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, figure, footer, header, hgroup, menu, nav, section, menu,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent; }
+
+article, aside, figure, footer, header,
+hgroup, nav, section {
+    display: block; }
+
+ul, li {
+    list-style: none;
+    list-style-type: none; }
+
+blockquote, q {
+    quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none; }
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent; }
+
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none; }
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold; }
+
+del {
+    text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+    border-bottom: 1px dotted #000;
+    cursor: help; }
+
+/* tables still need cellspacing="0" in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; }
+
+input, select {
+    vertical-align: middle; }
+
+* {
+-webkit-box-sizing: border-box;
+/* Safari/Chrome, other WebKit */
+-moz-box-sizing: border-box;
+/* Firefox, other Gecko */
+box-sizing: border-box;
+/* Opera/IE 8+ */
+/*padding:10px ; */}
+    /*
+
+/*RESET END*/
+
+
+.clear{
+    clear: both;
+    float: none;
+}
+
+a {
+    color: #46678b;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+div.wrapper {
+    width: 1020px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+#top{
+    padding: 25px 15px;
+    background-color: #F4F4F4;
+}
+
+#top .logo-minminas{
+    float: left;
+}
+
+#top .logo-nuevopais{
+    float: right;
+}
+
+#mainmenu{
+    background-color: #f7d415;
+    text-align: center;
+    border-bottom: 2px solid #f7c234;
+    border-top: 2px solid #f7c234;
+}
+
+#mainmenu li{
+    display: inline-block;
+    margin-right: 30px;
+    margin-left: 30px;
+    padding: 10px;
+}
+
+#mainmenu li.selected{
+    background-image: url(../images/menu-indicator.png);
+    background-position: center 35px;
+    background-repeat: no-repeat;
+}
+
+#mainmenu a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+    outline: none;
+}
+
+#mainmenu a:hover{
+    text-decoration: underline;
+}
+
+#mainmenu a.logout{
+    background-color: red;
+    color: white;
+    display: block;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+#content{
+
+}
+
+#content .wrapper{
+    padding: 60px 0;
+}
+
+#content table.data{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#content table.data th{
+    font-weight: 700;
+    padding: 10px 12px;
+    text-align: left;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #707070;
+}
+
+#content table.data.calendar th{
+    text-align: center !important;
+}
+
+#content table.data td{
+    padding: 10px 12px;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+#content table.data.calendar td{
+    padding: 10px 12px;
+    border-bottom: 1px solid #e4e4e4;
+    text-align: center !important;
+}
+
+#foot{
+    padding: 25px 15px;
+    background-color: #F4F4F4;
+    border-top: 2px solid #e6e6e6;
+}
+
+#foot p{
+    font-size: 1.1em;
+    color: black;
+}
+
+#foot p.small{
+    font-size: 0.9em;
+    color: gray;
+}
+
+#foot .foot-left {
+    float: left;
+}
+
+#foot .foot-right {
+    float: right;
+    text-align: right;
+}
+
+#foot .powered{
+    margin-bottom: 8px;
+}
+
+div.subtitle{
+    margin-bottom: 15px;
+}
+
+div.subtitle h2{
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 1em;
+    color: black;
+    font-weight: 400;
+    float: left;
+}
+
+div.subtitle h2:nth-child(2){
+    color: #adadad;
+    float: right;
+    text-align: right;
+}
+
+div.title{
+    margin-bottom: 30px;
+}
+
+div.title h1{
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 1em;
+    color: black;
+    font-weight: 700;
+    float: left;
+}
+
+div.title .submenu{
+    float: left;
+}
+
+div.title .submenu ul li{
+    display: inline-block;
+    background-color: #f4f4f4;
+    padding: 10px 10px;
+    padding-right: 5px;
+    margin-right: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+}
+
+div.title .submenu ul li a{
+    color: black;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+div.title .submenu ul li.selected{
+    background-color: #f7d415;
+    background-image: url(../images/menu-indicator.png);
+    background-position: center 35px;
+    background-repeat: no-repeat;
+}
+
+div.h50{
+    height: 50px;
+    clear: both;
+    float: none;
+}
+
+.dates td{
+    color: black;
+    font-size: 0.9em;
+    font-weight: 500;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 2px solid #707070 !important;
+}
+
+.dates td:last-child{
+    border-right: none;
+}
+
+.dates td.yellow{
+    color: orange;
+}
+
+.dates td.red{
+    color: red;
+}
+
+.dates td{
+    color: green;
+}
+
+.alarms td.disabled {
+    background-image: none;
+}
+
+.alarms td{
+    border-right: 1px solid #e4e4e4;
+    background-image: url(../images/green-alarm.png);
+    background-repeat: no-repeat;
+    background-position: center 12px;
+    padding-bottom: 20px !important;
+}
+
+.alarms td:last-child{
+    border-right: none;
+}
+
+.alarms td.red{
+    background-image: url(../images/red-alarm.png);
+}
+
+.alarms td.yellow{
+    background-image: url(../images/yellow-alarm.png);
+}
+
+ /*tabla cosita*/
+
+ .datagridSitios table { border-collapse: collapse; text-align: left; width: 100%; } .datagridSitios {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }.datagridSitios table td, .datagridSitios table th { padding: 3px 10px; }.datagridSitios table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#FFFFFF; font-size: 15px; font-weight: bold; border-left: 1px solid #0070A8; } .datagridSitios table thead th:first-child { border: none; }.datagridSitios table tbody td { color: #00557F; border-left: 1px solid #E1EEF4;font-size: 12px;font-weight: normal; }.datagridSitios table tbody .alt td { background: #E1EEf4; color: #00557F; }.datagridSitios table tbody td:first-child { border-left: none; }.datagridSitios table tbody tr:last-child td { border-bottom: none; }
