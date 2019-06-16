@@ -9,7 +9,7 @@ class Entradas_model extends CI_Model {
     public function get_entradas($id = FALSE)
     {
             if ($id === FALSE)
-            {       
+            {
                     $this->db->select('e.*, p.nombres as nom_proveedor, i.descripcion as nom_item ');
                     $this->db->from('entradas e');
                     $this->db->join('proveedores p', 'p.id = e.proveedor');
@@ -37,7 +37,13 @@ class Entradas_model extends CI_Model {
             'proveedor' => $this->input->post('proveedor'),
             'costo_unidad' => $this->input->post('costo_unidad'),
             'cantidad' => $this->input->post('cantidad'),
-            'costo_total' => $this->input->post('costo_total')
+            'costo_total' => $this->input->post('costo_total'),
+            'fecha_ingreso' => $this->input->post('fecha'),
+            'iva' => $this->input->post('iva'),
+            'precio_unidad_iva' => $this->input->post('precio_unidad_iva'),
+            'descuento' => $this->input->post('descuento'),
+            'precio_venta_detal' => $this->input->post('precio_detal'),
+            'precio_venta_mayor' => $this->input->post('precio_mayor')
 
         );
 
