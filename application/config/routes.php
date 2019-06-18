@@ -59,6 +59,7 @@ $route['translate_uri_dashes'] = FALSE;*/
 
 
 $route['abonos/create'] = 'abonos/create';
+$route['abonos/get_saldo'] = 'abonos/get_saldo';
 $route['abonos/(:any)'] = 'abonos/view/$1';
 $route['abonos/edit/(:any)'] = 'abonos/edit/$1';
 $route['abonos'] = 'abonos';
@@ -119,4 +120,3 @@ $route['login'] = 'login/login';
 
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
-

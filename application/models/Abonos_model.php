@@ -13,8 +13,8 @@ class Abonos_model extends CI_Model {
                     $this->db->select('a.*, c.nombres, c.apellidos, c.cedula, v.costo_total, DATE_FORMAT(v.fecha,"%d/%m/%Y") AS fecha, t.descripcion');
                     $this->db->from('abonos a');
                     $this->db->join('ventas v', 'v.codigo_venta = a.codigo_venta');
-                    $this->db->join('clientes c', 'c.id = v.cliente');    
-                    $this->db->join('tipos_venta t', 't.id = v.tipo_venta');    
+                    $this->db->join('clientes c', 'c.id = v.cliente');
+                    $this->db->join('tipos_venta t', 't.id = v.tipo_venta');
                     $this->db->where('v.tipo_venta <> 1');
                     $query = $this->db->get();
                     //return $query;
@@ -24,7 +24,7 @@ class Abonos_model extends CI_Model {
             $query = $this->db->get_where('abonos', array('id' => $id));
             return $query->row_array();
     }
-    
+
     public function set_abonos()
     {
         $this->load->helper('url');
@@ -36,11 +36,11 @@ class Abonos_model extends CI_Model {
             );
             //date_create_from_format("m/d/Y", $this->input->post('fecha'))->format('Y-m-d H:i:s'),
             return $this->db->insert('abonos', $data);
-        } else 
-            return false;       
+        } else
+            return false;
     }
-    
-    
+
+
     public function set_detalles_abonos()
     {
         $this->load->helper('url');
@@ -52,10 +52,10 @@ class Abonos_model extends CI_Model {
             );
             //date_create_from_format("m/d/Y", $this->input->post('fecha'))->format('Y-m-d H:i:s'),
             return $this->db->insert('detalles_abonos', $data);
-        } else 
-            return false;       
+        } else
+            return false;
     }
-    
+
     public function edit_abono($id = FALSE)
     {
         $this->load->helper('url');
@@ -74,7 +74,7 @@ class Abonos_model extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->update('abonos', $data);
     }
-    
+
     public function insert_detalle_abono($codigo_fact)
     {
         $data = array(
@@ -85,7 +85,7 @@ class Abonos_model extends CI_Model {
         );
         return $this->db->insert('detalles_abonos', $data);
     }
-    
+
     public function get_detalles_abonos($id)
     {
                     $this->db->select('d.id, d.codigo_venta, DATE_FORMAT(d.fecha,"%d/%m/%Y") AS fecha, d.valor, t.nombre AS tipo_pago');
@@ -95,7 +95,7 @@ class Abonos_model extends CI_Model {
                     $query = $this->db->get();
                     return $query->result_array();
     }
-    
+
     public function get_tipos_pago()
     {
                     $this->db->select('id, nombre');
@@ -105,5 +105,22 @@ class Abonos_model extends CI_Model {
     }
 
 
-    
+    public function info_abono($id)
+    {
+      if($id){
+          $this->db->select('a.*, c.nombres, c.apellidos, c.cedula, v.costo_total, DATE_FORMAT(v.fecha,"%d/%m/%Y") AS fecha, t.descripcion');
+          $this->db->from('abonos a');
+          $this->db->join('ventas v', 'v.codigo_venta = a.codigo_venta');
+          $this->db->join('clientes c', 'c.id = v.cliente');
+          $this->db->join('tipos_venta t', 't.id = v.tipo_venta');
+          $this->db->where('v.tipo_venta <> 1');
+          $this->db->where('a.id', $id);
+          $query = $this->db->get();
+          //return $query;
+        }
+          return $query->result_array();
+    }
+
+
+
 }

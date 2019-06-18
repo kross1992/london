@@ -19,7 +19,7 @@ class Abonos extends CI_Controller {
                 $this->load->view('templates/footer');
                 $this->load->view('templates/side');
         }
-        
+
         public function edit($id = NULL)
         {
             $data['abonos_item'] = $this->abonos_model->get_abonos($id);
@@ -39,7 +39,7 @@ class Abonos extends CI_Controller {
             $this->form_validation->set_rules('fecha', 'Fecha', 'required');
 
             if ($this->form_validation->run() === FALSE)
-            {   
+            {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/aside', $data);
                 $this->load->view('abonos/edit');
@@ -55,7 +55,7 @@ class Abonos extends CI_Controller {
                 $this->index();
             }
         }
-        
+
         public function detalles_abonos($id)
         {
                 $data['detalles_abonos'] = $this->abonos_model->get_detalles_abonos($id);
@@ -67,4 +67,28 @@ class Abonos extends CI_Controller {
                 $this->load->view('templates/side');
         }
 
-}  
+        public function create()
+        {
+                $data['abonos'] = $this->abonos_model->get_abonos();
+//                $data['tipo_pago'] = $this->abonos_model->get_tipos_pago();
+
+                $data['title'] = 'Abonos';
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/aside', $data);
+                $this->load->view('abonos/create', $data);
+                $this->load->view('templates/footer');
+                $this->load->view('templates/side');
+        }
+
+
+        public function get_saldo()
+        {
+
+            $id = $this->input->post(); # add this
+
+            $data = $this->abonos_model->info_abono($id["id"]);
+
+            echo json_encode($data);
+        }
+
+}
