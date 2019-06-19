@@ -58,7 +58,6 @@
     $('#tabla_datos thead tr').clone(true).appendTo( '#tabla_datos thead' );
     $('#tabla_datos thead tr:eq(1) th').each( function (i) {
         var title = $(this).text();
-        console.log(title);
         if(title != 'ABONAR' && title != 'HISTORIAL' ){
             $(this).html( '<input type="text" placeholder="'+title+'" />' );
 

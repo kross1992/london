@@ -70,8 +70,7 @@ class Abonos extends CI_Controller {
         public function create()
         {
                 $data['abonos'] = $this->abonos_model->get_abonos();
-//                $data['tipo_pago'] = $this->abonos_model->get_tipos_pago();
-
+                $data['tipo_pago'] = $this->abonos_model->get_tipos_pago();
                 $data['title'] = 'Abonos';
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/aside', $data);

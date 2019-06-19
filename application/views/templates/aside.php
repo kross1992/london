@@ -8,7 +8,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Modulos</li>
         <!-- Optionally, you can add icons to the links -->
-          <li class="treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-cart-plus"></i><span>Ventas</span>
             <span class="pull-right-container">
@@ -20,7 +20,18 @@
             <li><a href="<?php echo base_url('ventas')?>">Lista Facturas</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo base_url('abonos')?>"><i class="fa fa-money"></i> <span>Abonos</span></a></li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-money"></i><span>Abonos</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url('abonos/create')?>">Crear Nuevo Abono</a></li>
+            <li><a href="<?php echo base_url('abonos')?>">Lista Abonos</a></li>
+          </ul>
+        </li>
         <li><a href="<?php echo base_url('notas')?>"><i class="fa fa-key"></i> <span>Notas</span></a></li>
         <li><a href="<?php echo base_url('clientes')?>"><i class="fa fa-users"></i> <span>Clientes</span></a></li>
         <?php if ($this->session->userdata('rol') == 0){ ?>
@@ -35,8 +46,8 @@
             <li><a href="<?php echo base_url('categorias')?>">Categorias</a></li>
             <li><a href="<?php echo base_url('items')?>">Items</a></li>
             <li><a href="<?php echo base_url('existencias')?>">Inventario</a></li>
-            <li><a href="<?php echo base_url('usuarios')?>">Usuarios</a></li>        
-            <li><a href="<?php echo base_url('Ventas/get_ventas_anuladas')?>">Ventas Anuladas</a></li>        
+            <li><a href="<?php echo base_url('usuarios')?>">Usuarios</a></li>
+            <li><a href="<?php echo base_url('Ventas/get_ventas_anuladas')?>">Ventas Anuladas</a></li>
           </ul>
         </li>
         <?php }?>
