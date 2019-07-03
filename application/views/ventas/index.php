@@ -41,6 +41,12 @@
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
+                    <tfoot>
+                       <tr>
+                           <th colspan="5" style="text-align:right">Total:</th>
+                           <th colspan="3"></th>
+                       </tr>
+                   </tfoot>
                 </table>
             </center>
         </div>
@@ -72,7 +78,6 @@
         $('#tabla_datos thead tr').clone(true).appendTo( '#tabla_datos thead' );
         $('#tabla_datos thead tr:eq(1) th').each( function (i) {
             var title = $(this).text();
-            console.log(title);
             if(title != 'VER' && title != 'ANULAR'){
                 $(this).html( '<input type="text" placeholder="'+title+'" />' );
 
@@ -96,8 +101,90 @@
             language: {
                 url: "<?php echo base_url('assets/datatables/languages/Spanish.json'); ?>"
             },
-            responsive: true
+            dom: 'lBfrtip',
+            buttons: [
+              {
+                  extend: 'copyHtml5',
+                  exportOptions: {
+                      columns: [ 0, ':visible' ]
+                  }
+              },
+              {
+                  extend: 'excelHtml5',
+                  footer: true,
+                  exportOptions: {
+                      columns: [ 0, 1, 2, 3, 4, 5 ]
+                  }
+              },
+              {
+                  extend: 'csvHtml5',
+                  footer: true,
+                  exportOptions: {
+                      columns: [ 0, 1, 2, 3, 4, 5 ]
+                  }
+              },
+              {
+                  extend: 'pdfHtml5',
+                  footer: true,
+                  exportOptions: {
+                      columns: [ 0, 1, 2, 3, 4, 5 ]
+                  }
+              },
+              'colvis'
+            ],
+            order: [[ 0, "desc" ]],
+            responsive: true,
+            "footerCallback": function ( row, data, start, end, display ) {
+                var api = this.api(), data;
+
+                // Remove the formatting to get integer data for summation
+                var intVal = function ( i ) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '')*1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
+
+                // Total over all pages
+                total = api
+                    .column( 5 )
+                    .data()
+                    .reduce( function (a, b) {
+                        var s = a + '';
+                        s = s.replace('.', '');
+                        s = parseInt(s);
+
+                        var w = b + '';
+                        w = w.replace('.', '');
+                        w = w.replace('$', '');
+                        w = parseInt(w);
+                        return intVal(s) + intVal(w);
+                    }, 0 );
+
+                // Total over this page
+                pageTotal = api
+                    .column( 5, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                      var s = a + '';
+                      s = s.replace('.', '');
+                      s = parseInt(s);
+
+                      var w = b + '';
+                      w = w.replace('.', '');
+                      w = w.replace('$', '');
+                      w = parseInt(w);
+                      return intVal(s) + intVal(w);
+                    }, 0 );
+
+                // Update footer
+                $( api.column( 5 ).footer() ).html(
+                    '$'+new Intl.NumberFormat("de-DE").format(Math.round(pageTotal)) +' ( $'+ new Intl.NumberFormat("de-DE").format(Math.round(total)) +' Total Ventas)'
+                );
+            }
         } );
+
+
 
         function anular(id) {
         swal({

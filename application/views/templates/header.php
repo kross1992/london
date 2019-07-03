@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>  
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        
+
         <title>LONDON | Tienda de Ropa</title>
         <link rel="shortcut icon" type="image/png" href="<?php echo base_url('assets/images/logo.png');?>">
-        
+
         <!-- Bootstrap -->
         <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE-2.4.5/bower_components/bootstrap/dist/css/bootstrap.min.css');?>">
         <!-- Font Awesome -->
@@ -20,28 +20,35 @@
         <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE-2.4.5/dist/css/skins/skin-blue-light.min.css');?>">
 
         <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE-2.4.5/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css');?>">
-        
+
         <link type="text/css" href="<?php echo base_url('assets/AdminLTE-2.4.5/plugins/iCheck/all.css');?>" rel="stylesheet">
-        
+
         <link type="text/css" href="<?php echo base_url('assets/css/dataTableTheme.css');?>" rel="stylesheet">
 
         <link type="text/css" href="<?php echo base_url('assets/sweetalert/sweetalert.css');?>" rel="stylesheet">
 
         <link type="text/css" href="<?php echo base_url('assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');?>" rel="stylesheet">
-        
+
         <script src="<?php echo base_url('assets/jQuery/jquery-2.2.3.min.js');?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.min.js');?>"></script>
-        
+        <script src="<?php echo base_url('assets/datatables/dataTables.buttons.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/datatables/buttons.flash.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/datatables/jszip.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/datatables/pdfmake.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/datatables/vfs_fonts.js');?>"></script>
+        <script src="<?php echo base_url('assets/datatables/buttons.html5.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/datatables/buttons.colVis.min.js');?>"></script>
+
         <script src="<?php echo base_url('assets/AdminLTE-2.4.5/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js');?>"></script>
 
         <script src="<?php echo base_url('assets/sweetalert/sweetalert.min.js');?>"></script>
-        
+
         <script src="<?php echo base_url('assets/AdminLTE-2.4.5/plugins/iCheck/iCheck.min.js');?>"></script>
-        
+
         <!-- SELECT LIST AUTO COMPLETABLE DEL BOOTSTRAP-->
         <link href="<?php echo base_url(); ?>css/select2.min.css" rel="stylesheet" />
         <!-- <script src="<?php echo base_url(); ?>js/select2.min.js"></script> -->
-    
+
         <!-- Tema Personalizado DataTable -->
         <!--<link type="text/css" href="<?php //echo base_url('assets/css/dataTableTheme.scss');?>" rel="stylesheet">
         <link type="text/css" href="<?php //echo base_url('assets/css/dataTableTheme.css');?>" rel="stylesheet">  -->
@@ -70,7 +77,7 @@
               <!-- Navbar Right Menu -->
               <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                  
+
                   <!-- User Account Menu -->
                   <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
@@ -122,6 +129,3 @@
               </div>
             </nav>
           </header>
-
-          
-            
