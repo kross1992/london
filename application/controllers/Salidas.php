@@ -7,6 +7,7 @@ class Salidas extends CI_Controller {
                 $this->load->model('salidas_model');
                 $this->load->model('items_model');
                 $this->load->model('proveedores_model');
+                $this->load->model('existencias_model');
                 $this->load->helper('url_helper');
         }
 
@@ -15,7 +16,7 @@ class Salidas extends CI_Controller {
                 $data['salidas'] = $this->salidas_model->get_salidas();
                 $data['title'] = 'salidas';
 
-            
+
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/aside', $data);
                 $this->load->view('salidas/index', $data);
@@ -45,7 +46,7 @@ class Salidas extends CI_Controller {
         {
             $this->load->helper('form');
             $this->load->library('form_validation');
-            
+
             $data['items'] = $this->items_model->get_items();
             $data['proveedores'] = $this->proveedores_model->get_proveedores();
             $data['title'] = 'Crear una nueva Salida de Inventario';
@@ -56,7 +57,7 @@ class Salidas extends CI_Controller {
 
             if ($this->form_validation->run() === FALSE)
             {
-                
+
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/aside', $data);
                 $this->load->view('salidas/create', $data);

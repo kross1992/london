@@ -28,10 +28,11 @@ class Salidas_model extends CI_Model {
             'factura' => $this->input->post('factura'),
             'item' => $this->input->post('item'),
             'proveedor' => $this->input->post('proveedor'),
-            'costo_unidad' => $this->input->post('precio'),
+            'costo_unidad' => $this->input->post('costo_unidad'),
             'cantidad' => $this->input->post('cantidad'),
             'costo_total' => $this->input->post('costo_total'),
-            'reembolso' => $this->input->post('reembolso')
+            'reembolso' => $this->input->post('reembolso'),
+            'observaciones' => $this->input->post('observaciones'),
         );
 
         return $this->db->insert('salidas', $data);

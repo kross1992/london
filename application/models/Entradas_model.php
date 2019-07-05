@@ -43,7 +43,8 @@ class Entradas_model extends CI_Model {
             'precio_unidad_iva' => $this->input->post('precio_unidad_iva'),
             'descuento' => $this->input->post('descuento'),
             'precio_venta_detal' => $this->input->post('precio_detal'),
-            'precio_venta_mayor' => $this->input->post('precio_mayor')
+            'precio_venta_mayor' => $this->input->post('precio_mayor'),
+            'observaciones' => $this->input->post('observaciones')
 
         );
 

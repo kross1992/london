@@ -43,7 +43,8 @@
                     </tbody>
                     <tfoot>
                        <tr>
-                           <th colspan="5" style="text-align:right">Total:</th>
+                          <th colspan="4"></th>
+                           <th colspan="1" style="text-align:right">Total:</th>
                            <th colspan="3"></th>
                        </tr>
                    </tfoot>
@@ -57,7 +58,7 @@
                     <a href="<?php echo base_url('clientes/create')?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Crear Nuevo Cliente</a>
                 </div>
                 <div class="col-md-3 ">
-                    <a href="<?php echo base_url('ventas/create')?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Crear Nueva Venta</a>
+                    <a href="<?php echo base_url('ventas/create1')?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Crear Nueva Venta</a>
                 </div>
                 <div class="col-md-3 "></div>
             </div>
@@ -126,9 +127,34 @@
               {
                   extend: 'pdfHtml5',
                   footer: true,
+                  title: 'CUADRE DE CAJA DIARIO',
                   exportOptions: {
                       columns: [ 0, 1, 2, 3, 4, 5 ]
-                  }
+                  },
+                  customize: function (doc) {
+                        var tblBody = doc.content[1].table.body;
+                        // ***
+                        //This section creates a grid border layout
+                        // ***
+                        doc.content[1].layout = {
+                        hLineWidth: function(i, node) {
+                            return (i === 0 || i === node.table.body.length) ? 1 : 1;},
+                        vLineWidth: function(i, node) {
+                            return (i === 0 || i === node.table.widths.length) ? 1 : 1;},
+                        hLineColor: function(i, node) {
+                            return (i === 0 || i === node.table.body.length) ? 'black' : 'gray';},
+                        vLineColor: function(i, node) {
+                            return (i === 0 || i === node.table.widths.length) ? 'black' : 'gray';}
+                        };
+                        // ***
+                        //This section loops thru each row in table looking for where either
+                        //the second or third cell is empty.
+                        //If both cells empty changes rows background color to '#FFF9C4'
+                        //if only the third cell is empty changes background color to '#FFFDE7'
+                        // ***
+                        doc.content[1].table.widths =  Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+                    }
+
               },
               'colvis'
             ],

@@ -121,6 +121,15 @@
                         </div>
                     </div>
                 </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class='form-group'>
+                      <label for="observaciones">Observaciones</label>
+                      <textarea id="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Observaciones"></textarea>
+                    </div>
+                  </div>
+                </div>
             </div>
                 <div class="box-footer">
                 <div class="row" align="center">

@@ -23,7 +23,7 @@
                                 <td><?php echo $salidas_item['proveedor']; ?></td>
                                 <td><?php echo $salidas_item['item']; ?></td>
                                 <td><?php echo $salidas_item['cantidad']; ?></td>
-                                <td><a href="<?php echo base_url('salidas/'.$salidas_item['codigo']); ?>"><i class="fa fa-edit fa-2x"></i></a></td>
+                                <td><a href="<?php echo base_url('salidas/'.$salidas_item['id']); ?>"><i class="fa fa-edit fa-2x"></i></a></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -47,5 +47,5 @@
    	    },
    	    responsive: true
    	});
-	
+
 </script>
