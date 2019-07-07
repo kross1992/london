@@ -121,16 +121,16 @@
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step2">
                                 <h3>General</h3>
-                                
+
                                 <div class="row">
                                     <br>
                                     <div class="col-md-4">
-                                        <label for="fecha">Fecha</label> 
-                                        <div class="input-group date">            
-                                        <input name="fecha" id="fecha" type="date" class="form-control" placeholder="dd/mm/yyyy" value="<?php echo date("Y-m-d"); ?>" required/>  
+                                        <label for="fecha">Fecha</label>
+                                        <div class="input-group date">
+                                        <input name="fecha" id="fecha" type="date" class="form-control" placeholder="dd/mm/yyyy" value="<?php echo date("Y-m-d"); ?>" required/>
                                          <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-calendar"></i>
-                                          </span>              
+                                          </span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -196,11 +196,11 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="Plazo">Plazo</label>
-                                            <div class="input-group date">            
-                                            <input name="plazo" id="plazo" type="date" class="form-control" placeholder="dd/mm/yyyy" value="<?php echo date("Y-m-d"); ?>"/>  
+                                            <div class="input-group date">
+                                            <input name="plazo" id="plazo" type="date" class="form-control" placeholder="dd/mm/yyyy" value="<?php echo date("Y-m-d"); ?>"/>
                                              <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-calendar"></i>
-                                              </span>              
+                                              </span>
                                             </div>
                                         </div>
                                     </div>
@@ -214,7 +214,7 @@
 
                             <div class="tab-pane" role="tabpanel" id="step3">
                                 <h3>Tipos de Pago</h3>
-                                
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <br>
@@ -265,7 +265,7 @@
                                     <li><button type="button" class="btn btn-primary next-step">Guardar y continuar</button></li>
                                 </ul>
                             </div>
-                            
+
                             <div class="tab-pane" role="tabpanel" id="complete">
                                 <h3>Terminar</h3>
                                 <div class="row">
@@ -275,7 +275,7 @@
                                             <span class='input-group-addon'>
                                                 $
                                             </span>
-                                            
+
                                             <input type="number" name="costo_total" id="costo_total" class="form-control form-control-alternative" required/>
                                         </div>
                                     </div>
@@ -315,8 +315,8 @@
             </div>
         </div>
     </div>
-</section> 
-</form> 
+</section>
+</form>
 
 <div class="modal fade bs-info-modal-sm" id="ventaModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">
@@ -357,7 +357,7 @@
             </div>
         </div>
     </div>
-</div>  
+</div>
 
 <!-- Modal -->
 <?php echo form_open('ventas/create_cliente', 'id="clienteForm"'); ?>
@@ -365,7 +365,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -500,7 +500,7 @@ span.round-tab i{
 .wizard li.active span.round-tab {
     background: #fff;
     border: 2px solid #5bc0de;
-    
+
 }
 .wizard li.active span.round-tab i{
     color: #5bc0de;
@@ -585,7 +585,7 @@ span.round-tab:hover {
         left: 35%;
     }
 }
-</style> 
+</style>
 <script type="text/javascript">
 	$(document).ready(function () {
         $('#codigo_venta').val("<?php echo $max_factura['codigo_venta'] + 1; ?>");
@@ -593,12 +593,12 @@ span.round-tab:hover {
         $('.js-example-basic-single').select2({width: '100%'});
         //Initialize tooltips
         $('.nav-tabs > li a[title]').tooltip();
-        
+
         //Wizard
         $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
 
             var $target = $(e.target);
-        
+
             if ($target.parent().hasClass('disabled')) {
                 return false;
             }
@@ -628,26 +628,27 @@ span.round-tab:hover {
     }
 
     $("#btnCrear").click(function () {
-        var codigo       = $('#codigo_venta').val();
-        var fecha        = $('#fecha').val();
-        var costo        = parseInt($('#costo_total').val());
-        var tipo         = $('#tipo_venta').val();
-        var pago_total   = $('#pago_total').val();
-        var cliente      = $('#cliente').val();
-        var plazo        = $('#plazo').val();
-        var periodicidad = $('#periodicidad').val();
-        var iva          = $('#iva').val();
-        var cuota        = $('#periodicidad').val();
-        var sistecredito = $('#sistecredito').val();
+        var codigo           = $('#codigo_venta').val();
+        var fecha            = $('#fecha').val();
+        var costo            = parseInt($('#costo_total').val());
+        var tipo             = $('#tipo_venta').val();
+        var pago_total       = $('#pago_total').val();
+        var cliente          = $('#cliente').val();
+        var plazo            = $('#plazo').val();
+        var periodicidad     = $('#periodicidad').val();
+        var iva              = $('#iva').val();
+        var cuota            = $('#cuota').val();
+        var sistecredito     = $('#sistecredito').val();
+        var num_sistecredito = $('#numero_sistecredito').val();
         //var efectivo = parseInt($('#efectivo').val());
         //var abono_separado = parseInt($('#abono_separado').val());
         //console.log('abono_separado');
-        
+
        /* if(tipo=='3'){
             console.log("entra");
             changeDevuelve();
         }*/
-        
+
         if (fecha == '') {
             swal('Advertencia', 'La fecha no puede estar vacia');
             return false;
@@ -660,14 +661,17 @@ span.round-tab:hover {
         } else if (tipo != '1' && cliente == '0') {
             swal('Advertencia', 'El cliente es requerido para este tipo de venta');
             return false;
-        } else if (tipo != '1' && plazo == '0') {
+        } else if (tipo == 3 && plazo == '0') {
             swal('Advertencia', 'El plazo es requerido para este tipo de venta');
             return false;
-        } else if (tipo != '1' && periodicidad == '0') {
+        } else if (tipo == 2 && periodicidad == '0') {
             swal('Advertencia', 'La periodicidad es requerida para este tipo de venta');
             return false;
         } else if (tipo == 1 && pago_total < costo) {
             swal('Advertencia', 'El efectivo recibido no puede ser inferior al total de la venta');
+            return false;
+        } else if (tipo == 2 && cuota == '0') {
+            swal('Advertencia', 'El credito debe tener un número de cuotas');
             return false;
         } /*else if (tipo == '3' && abono_separado <= 0) {
             swal('Advertencia', 'Ventas por separado solicita Monto a Abonar');
@@ -698,7 +702,7 @@ span.round-tab:hover {
                             {
                                 ret = data;//$.parseJSON(data);
                                 console.log(ret);
-                                if (ret.error === 'Y') {                                    
+                                if (ret.error === 'Y') {
                                     swal("Error", ret.message, "error");
                                 } else {
                                     swal("Hecho!", ret.message, "success");
@@ -723,14 +727,14 @@ span.round-tab:hover {
         return false;
 
     });
-    
+
     $("#btnCrearCliente").click(function () {
         var cedula = $('#cedula').val();
         var nombre = $('#nombres').val();
         var apellido = $('#apellidos').val();
-        
-        
-        
+
+
+
         if (cedula == '') {
             swal('Advertencia', 'La cedula no puede estar vacia');
             return false;
@@ -769,7 +773,7 @@ span.round-tab:hover {
                                 $('#cliente').append(newOption).trigger('change');
                                 $('#clienteModal').modal('hide');
                             }
-                            
+
                         },
                         error: function (data) {
                             console.log('An error occurred.');
@@ -788,11 +792,11 @@ span.round-tab:hover {
         changeDevuelve();
     });*/
     function mostrarPlazo(){
-        
+
         if ($("#tipo_venta").val() == 2){
             $("#rowCredito").show();
             $("#rowPlazo").hide();
-        } 
+        }
 
         if($("#tipo_venta").val() == 3){
             $("#rowCredito").hide();
@@ -884,7 +888,7 @@ span.round-tab:hover {
         }else{
             costo = (precio - (precio * desc/100) ) * cantidad;
         }
-        
+
         $('#total' + id).val(costo);
 
         changeCostoTotal();
@@ -904,7 +908,7 @@ span.round-tab:hover {
                 costo += (precio - (precio * desc/100) ) * cantidad;
             }
         }
-        
+
         if(iva > 0){
             costo = ((costo * iva) / 100 ) + costo;
         }
@@ -939,7 +943,7 @@ span.round-tab:hover {
     function changeDevuelve() {
         var efectivo = $('#efectivo').val();
         var entrega = $('#entrega').val();
-        
+
         $('#devuelve').val(entrega-efectivo);
     }
 
@@ -952,4 +956,4 @@ span.round-tab:hover {
         });
         return nf.format(number);
     }
-</script>      	
+</script>

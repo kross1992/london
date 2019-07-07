@@ -194,7 +194,7 @@
              {
                  $("#abono").val(0);
                  var url_form = "<?php echo base_url('/abonos/edit/'); ?>";
-                 $("#new-report").attr("data-id",response[0].id);
+                 $("#new-report").attr("data-id",response[0].codigo_venta);
                  $("#abonado").val(response[0].abono);
                  $("#abono").attr({
                    "max" : response[0].saldo

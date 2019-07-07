@@ -120,3 +120,6 @@ $route['login'] = 'login/login';
 
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
+
+$route['resolucion/edit/(:any)'] = 'resolucion/edit/$1';
+$route['resolucion'] = 'resolucion';

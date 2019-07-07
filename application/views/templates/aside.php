@@ -48,6 +48,7 @@
             <li><a href="<?php echo base_url('existencias')?>">Inventario</a></li>
             <li><a href="<?php echo base_url('usuarios')?>">Usuarios</a></li>
             <li><a href="<?php echo base_url('Ventas/get_ventas_anuladas')?>">Ventas Anuladas</a></li>
+            <li><a href="<?php echo base_url('resolucion/index')?>">Resolución Factura</a></li>
           </ul>
         </li>
         <?php }?>
